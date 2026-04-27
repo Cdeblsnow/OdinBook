@@ -1,0 +1,11 @@
+<h1>Pots</h1>
+
+<ul>
+    <% @posts.each do |post|%>
+    <div>
+        <h3> <%=post.title%> </h3>
+        <div>
+            <%=post.body%>
+        </div>
+    </div>
+</ul>
