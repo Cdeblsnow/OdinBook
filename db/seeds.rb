@@ -9,7 +9,6 @@
 #   end
 user = User.create!(email: "example15@gmail.com", password: "123456")
 user.posts.create!(
-  author_id: user.id,
   title: "Test 1",
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et bibendum nulla, nec rutrum risus. Fusce et varius urna. Aenean molestie consequat nisl. Sed rhoncus nec nisl vel dapibus. Vestibulum bibendum gravida lectus vel posuere. In molestie eget diam nec viverra. Aliquam convallis, mi sed placerat iaculis, purus eros sodales ex, eu sollicitudin leo tortor ac ante. Vestibulum justo metus, dapibus quis est quis, aliquet viverra magna.
 
