@@ -1,0 +1,10 @@
+<h2><%@post.title%> </h2>
+<div>
+    <%= @post.body%>
+</div>
+
+<% @comments.each do |c|%>
+    <ul>
+        <li><%= c.content%></li>
+    </ul>
+<%end%>
