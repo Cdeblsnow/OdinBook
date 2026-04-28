@@ -1,11 +1,11 @@
 <h1>Posts</h1>
 
 <ul>
-    <% @posts.each do |post|%>
+    <% @posts.each do |p|%>
     <div>
-        <h3> <%=post.title%> </h3>
+        <h3> <%=p.title%> </h3>
         <div>
-            <%=post.body%>
+            <%=link_to "View", p%>
         </div>
     </div>
     <%end%>
