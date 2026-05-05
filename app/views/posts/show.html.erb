@@ -9,7 +9,9 @@
     <%end%>
 
     <div id= "list-of-comments">
-        <%= render @post.comments%>
+        <%  @post.comments.each do |c|%>
+            <%= c.content%>
+        <%end%>
     </div>
 </div>
 

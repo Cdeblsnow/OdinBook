@@ -1,6 +1,6 @@
-<%= turbo_frame_tag "new_comment_frame"%>
+<%= turbo_frame_tag "new_comment_frame" do%>
     <%= form_with model: [@post,@comment] do |f|%>
-    <%= f.text_area :content%>
-    <%= f.submit%>
+        <%= f.text_area :content%>
+        <%= f.submit%>
     <%end%>
 <%end%>

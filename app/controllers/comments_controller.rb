@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.build(comments_params)
+    @comment.user = current_user
 
     if @comment.save
       respond_to do |format|
