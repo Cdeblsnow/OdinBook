@@ -3,8 +3,13 @@
     <%= @post.body%>
 </div>
 
-<% @comments.each do |c|%>
-    <ul>
-        <li><%= c.content%></li>
-    </ul>
-<%end%>
+<div id = "comment-section">
+    <%= turbo_frame_tag "new_comment_frame" do%>
+        <%= link_to "Add a comment", new_post_comment_path(@post), data: { turbo_frame:"new_comment_frame"}%>
+    <%end%>
+
+    <div id= "list-of-comments">
+        <%= render @post.comments%>
+    </div>
+</div>
+

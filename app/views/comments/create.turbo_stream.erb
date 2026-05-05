@@ -1,0 +1,7 @@
+<%= turbo_stream.append "list-of-comments", @comment%>
+
+<%= turbo_stream.replace "new_comment_frame" do%>
+    <%= link_to "Add a Comment", new_post_comment_path(@post), data: { turbo_frame: "new_comment_frame" } %>
+<% end %>
+
+commit with add turbo stream to comments on post show
