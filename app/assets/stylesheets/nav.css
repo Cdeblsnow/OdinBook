@@ -3,7 +3,7 @@ ul{
 }
 
 .header{
-    width: 90%;
+    width: 95%;
 }
 
 .header-links{
@@ -39,6 +39,7 @@ li svg{
 
 .dropdown-content a{
     text-decoration: none;
+    padding: 5px;
     color: black;
     display: block;
 }
