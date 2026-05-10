@@ -1,0 +1,18 @@
+<div class="user-profile">
+    <h2>
+        <%= @user.user_name%>
+    </h2>
+    <div>
+        <div>
+            <p>Followers</p>
+            <p><%@user.following%></p>
+            <p>add the number of following/ed</p>
+        </div>
+        <div>
+            <p>Following</p>
+            <p><%@user.followed_by%></p>
+        </div>
+    </div>
+
+    <p>add a list of user posts</p>
+</div>

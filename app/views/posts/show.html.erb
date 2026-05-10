@@ -1,4 +1,6 @@
-<h2><%@post.title%> </h2>
+<h2><%=@post.title%> </h2>
+<h3>By: <%=link_to @post.author_user_name, user_path(@post.author_id)%> </h3>
+
 <div>
     <%= @post.body%>
 </div>
