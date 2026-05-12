@@ -4,5 +4,6 @@ class UsersController < ApplicationController
   end
 
   def follow
+    current_user.follow << @user.id
   end
 end

@@ -17,5 +17,9 @@ Rails.application.routes.draw do
      resources :comments
    end
 
-   resources :users
+   resources :users do
+     member do
+       post :follow
+     end
+   end
 end
