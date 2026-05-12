@@ -2,7 +2,11 @@
     <h2>
         <%= @user.user_name%>
     </h2>
-    <%= button_to "Follow", follow_user_path(@user), method: :post, class: "btn-follow"%>
+    <% if current_user.following.include?(@user.id)%>
+        <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
+    <%else%>
+        <%= button_to "Follow", follow_user_path(@user), method: :post, class: "btn-follow"%>
+    <%end%>
     <div>
         <div>
             <p>Followers</p>
