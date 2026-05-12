@@ -1,24 +1,9 @@
 class ChangeFollowToArray < ActiveRecord::Migration[8.1]
   def change
+    remove_column :users, :following, :integer
+    remove_column :users, :followed_by, :integer
 
-    def up
-      execute <<-SQL
-        ALTER TABLE users
-          ALTER COLUMN following TYPE integer[] USING ARRAY[following]::integer[],
-          ALTER COLUMN followed_by TYPE integer[] USING ARRAY[followed_by]::integer[];
-      SQL
-      change_column_default :users, :following, []
-      change_column_default :users, :followed_by, []
-    end
-    
-    def down
-      execute <<-SQL
-        ALTER TABLE users
-          ALTER COLUMN following TYPE integer USING following[1],
-          ALTER COLUMN followed_by TYPE integer USING followed_by[1];
-      SQL
-      change_column_default :users, :following, nil
-      change_column_default :users, :followed_by, nil
-    end
+    add_column :users, :following, :integer, array: true, default: []
+    add_column :users, :followed_by, :integer, array: true, default: []
   end
 end
