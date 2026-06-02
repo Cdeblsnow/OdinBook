@@ -13,7 +13,6 @@
         <div>
             <p>Followers</p>
             <p><%=@user.following.count%></p>
-            <p>add the number of following/ed</p>
         </div>
         <div>
             <p>Following</p>
@@ -21,5 +20,17 @@
         </div>
     </div>
 
-    <p>add a list of user posts</p>
+    <div class="post-lis">
+        <h3> Activity</h3>
+        <%if @user.posts.count == 0%>
+            <p>This is sadly empty</p>
+        <%else%>
+            <% @user.posts.each do |post|%>
+            <div>
+                <p> <%= post.title%> </p>
+                <p>add post date and interactions</p>
+            </div>
+             <%end%>
+        <%end%>
+    </div>
 </div>
