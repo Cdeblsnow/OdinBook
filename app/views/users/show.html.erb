@@ -1,15 +1,17 @@
-<div class="user-profile">
-    <h2>
-        <%= @user.user_name%>
-    </h2>
-    <% if current_user.id == @user.id%>
-        <p> My profile</p>
-    <%elsif  current_user.following.include?(@user.id)%>
-        <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
-    <%else%>
-        <%= button_to "Follow", follow_user_path(@user), method: :post, class: "btn-follow"%>
-    <%end%>
-    <div>
+<div class="user-profile-card">
+    <div class="user-name">
+        <h2>
+            <%= @user.user_name%>
+        </h2>
+        <% if current_user.id == @user.id%>
+            <p> My profile</p>
+        <%elsif  current_user.following.include?(@user.id)%>
+            <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
+        <%else%>
+            <%= button_to "Follow", follow_user_path(@user), method: :post, class: "btn-follow"%>
+        <%end%>
+    </div>
+    <div class="user-follow">
         <div>
             <p>Followers</p>
             <p><%=@user.following.count%></p>
@@ -19,18 +21,20 @@
             <p><%=@user.followed_by.count%></p>
         </div>
     </div>
+</div>
 
-    <div class="post-lis">
+<div class="user-post-list">
         <h3> Activity</h3>
-        <%if @user.posts.count == 0%>
-            <p>This is sadly empty</p>
-        <%else%>
-            <% @user.posts.each do |post|%>
-            <div>
-                <p> <%= post.title%> </p>
-                <p>add post date and interactions</p>
-            </div>
-             <%end%>
-        <%end%>
-    </div>
+        <div class="post-content">
+            <%if @user.posts.count == 0%>
+                <p>This is sadly empty</p>
+            <%else%>
+                <% @user.posts.each do |post|%>
+                <div>
+                    <p> <%= post.title%> </p>
+                    <p>add post date and interactions</p>
+                </div>
+                 <%end%>
+            <%end%>
+        </div>
 </div>
