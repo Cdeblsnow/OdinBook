@@ -1,12 +1,3 @@
 <h1>Posts</h1>
 
-<ul>
-    <% @posts.each do |p|%>
-    <div>
-        <h3> <%=p.title%> </h3>
-        <div>
-            <%=link_to "View", p%>
-        </div>
-    </div>
-    <%end%>
-</ul>
+<%=render partial: "shared/posts", locals: {posts: @posts}%>

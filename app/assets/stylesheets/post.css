@@ -9,7 +9,7 @@
     
 }
 
-.posts-container h3{
+div h3{
     display: flex;
     justify-content: center;
 }
