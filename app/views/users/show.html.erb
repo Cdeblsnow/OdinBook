@@ -32,16 +32,18 @@
             <%else%>
                 <% @user.posts.each do |post|%>
                 <div class="post-card">
-                    <p> <%= post.title%> </p>
+                     <h4><%= post.title%> </h4>
                     <div class="post-body">
                         <%= post.body%>
                         <p>add post date and interactions</p>
                     </div>
-                    <div>
-                        <%=post.number_of_comments%>
-                    </div>
-                    <div>
-                        <%=post.number_of_likes%>
+                    <div class="post-interactions">
+                        <div>
+                            <%=post.number_of_comments%>
+                        </div>
+                        <div>
+                            <%=post.number_of_likes%>
+                        </div>
                     </div>
                 </div>
                  <%end%>
