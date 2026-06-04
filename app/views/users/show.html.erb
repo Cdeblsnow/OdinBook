@@ -13,6 +13,7 @@
     </div>
     <div class="user-follow">
         <div>
+            <p> add space and check behavior when follow butn is on display</p>
             <p>Followers</p>
             <p><%=@user.following.count%></p>
         </div>
@@ -23,16 +24,25 @@
     </div>
 </div>
 
-<div class="user-post-list">
+<div class="posts-container">
         <h3> Activity</h3>
         <div class="post-content">
             <%if @user.posts.count == 0%>
                 <p>This is sadly empty</p>
             <%else%>
                 <% @user.posts.each do |post|%>
-                <div>
+                <div class="post-card">
                     <p> <%= post.title%> </p>
-                    <p>add post date and interactions</p>
+                    <div class="post-body">
+                        <%= post.body%>
+                        <p>add post date and interactions</p>
+                    </div>
+                    <div>
+                        <%=post.number_of_comments%>
+                    </div>
+                    <div>
+                        <%=post.number_of_likes%>
+                    </div>
                 </div>
                  <%end%>
             <%end%>

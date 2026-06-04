@@ -1,0 +1,13 @@
+.posts-container{
+    display: block;
+    width: 80%;
+    margin: auto;
+    margin-top: 5rem;
+    background-color: rgb(86, 86, 235);
+    border: solid black;
+}
+
+.posts-container h3{
+    display: flex;
+    justify-content: center;
+}

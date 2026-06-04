@@ -22,15 +22,3 @@
     align-items: center;
 }
 
-.user-post-list{
-    display: block;
-}
-
-.user-post-list h3{
-    display: flex;
-    justify-content: center;
-}
-
-.post-content{
-    justify-content: flex-start;
-}
