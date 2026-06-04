@@ -29,7 +29,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     padding: 2rem 0 0 2rem;
-    font-size: 3rem;
+    font-size: 2.8rem;
 
 }
 
@@ -45,4 +45,17 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    
+}
+
+.post-interactions div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2% 0 0;
+}
+
+.post-interactions div svg{
+    width: 2em;
+    height: 2rem;
 }
