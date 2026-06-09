@@ -18,6 +18,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow_request
+    @user.follow_request_list << current_user.id
+  end
+
+  def notification
+    @user.number_of_notifications += 1
+  end
+
   private
 
   def set_user
