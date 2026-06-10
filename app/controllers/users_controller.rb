@@ -5,25 +5,41 @@ class UsersController < ApplicationController
   end
 
   def follow
-    current_user.following << @user.id
-    if current_user.save
-      redirect_to @user
+    @user.following << current_user.id
+    current_user.followed_by << @user.id
+    if @user.save && current_user.save
+      remove_from_list(@user)
+      redirect_to current_user
     end
   end
 
   def unfollow
     current_user.following = current_user.following - [ @user.id ]
-    if current_user.save
+    @user.followed_by =  @user.followed_by - [ current_user.id ]
+    if @user.save && current_user.save
       redirect_to @user
     end
   end
 
+  def remove_from_list(user)
+    current_user.follow_request_list = current_user.follow_request_list - [ user.id ]
+    current_user.save
+  end
+
   def follow_request
     @user.follow_request_list << current_user.id
+    if @user.save
+      notification
+      redirect_to @user
+    end
   end
 
   def notification
     @user.number_of_notifications += 1
+  end
+
+  def reset_notifications
+    current_user.number_of_notifications = 0
   end
 
   private

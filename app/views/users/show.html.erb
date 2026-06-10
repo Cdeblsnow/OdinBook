@@ -7,19 +7,21 @@
             <p> My profile</p>
         <%elsif  current_user.following.include?(@user.id)%>
             <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
+        <%elsif @user.follow_request_list.include?(current_user.id)%>
+            <%= button_to "Cancel request"%>
         <%else%>
-            <%= button_to "Follow", follow_user_path(@user), method: :post, class: "btn-follow"%>
+            <%= button_to "Follow", follow_request_user_path(@user), method: :post, class: "btn-follow"%>
         <%end%>
     </div>
     <div class="user-follow">
         <div>
             <p> add space and check behavior when follow butn is on display</p>
             <p>Followers</p>
-            <p><%=@user.following.count%></p>
+            <p><%=@user.followed_by.count%></p>
         </div>
         <div>
             <p>Following</p>
-            <p><%=@user.followed_by.count%></p>
+            <p><%=@user.following.count%></p>
         </div>
     </div>
 </div>

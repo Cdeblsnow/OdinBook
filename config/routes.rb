@@ -21,6 +21,8 @@ Rails.application.routes.draw do
      member do
        post :follow
        post :unfollow
+       post :follow_request
+       post :remove_from_list
      end
    end
 end
