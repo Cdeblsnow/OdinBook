@@ -28,6 +28,10 @@
                     </div>
                 </div>
             </div>
+            <%if current_user.id == post.author_id%>
+                <%= button_to "Delete post", post, method: :delete,
+                            data: { turbo_confirm: "Are you sure?"}%>
+            <%end%>
         <%end%>
     </div>
 </div>
