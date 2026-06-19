@@ -25,4 +25,10 @@ Rails.application.routes.draw do
        post :remove_from_list
      end
    end
+
+   resources :likes do
+     member do
+       post :add_like
+     end
+   end
 end

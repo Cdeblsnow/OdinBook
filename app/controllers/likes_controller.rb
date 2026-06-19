@@ -1,14 +1,11 @@
 class LikesController < ApplicationController
   before_action :set_post
 
-  def new
-    @like = @post.likes.build
-  end
-  def create
+  def add_like
     @like = @post.likes.build
     @like.user_id = current_user.id
-    if @like.save
-      @post.number_of_likes =+ 1
+    @post.number_of_likes =+ 1
+    if @like.save && @post.save
       redirect_to @post
     else
       render :new, status: :unprocessable_entity
@@ -20,6 +17,6 @@ class LikesController < ApplicationController
 
 
   def set_post
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
   end
 end
