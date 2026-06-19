@@ -1,0 +1,8 @@
+<h1>Find people</h1>
+
+<%@user.each do |user|%>
+after following someone return here
+    <p>you are not following <%=user.user_name%> </p>
+        <%= button_to "Follow", follow_user_path(user), method: :post, class: "btn-follow"%>
+    </div>
+<%end%>
