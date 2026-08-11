@@ -22,3 +22,15 @@
     align-items: center;
 }
 
+.edit-profile{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.edit-profile svg{
+    width: 1.3em;
+    height: 1.3em;
+}
+

@@ -1,17 +1,27 @@
 <div class="user-profile-card">
     <div class="user-name">
-        <h2>
-            <%= @user.user_name%>
-        </h2>
-        <li>
-            <%# update css. remove li  %>
-            <%= link_to edit_user_registration_path do%>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <title>Edit profile</title>
-                <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+        
+        <%if current_user.image.attached?%>
+            <%# add css %>
+            <%= image_tag(current_user.image, style:"
+            display: inline-block;height: 150px; height:150px; ; border-radius: 10%")%>
+         <%else%>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <title>Account</title>
+                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
             </svg>
-            <%end%>
-        </li>
+        <%end%>
+        <h2>
+            <div class="edit-profile">
+                <%= @user.user_name%>
+                <%= link_to edit_user_registration_path do%>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <title>Edit profile</title>
+                    <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                </svg>
+                <%end%>
+            </div>
+        </h2>
         <% if current_user.id == @user.id%>
             <p> My profile</p>
         <%elsif  current_user.following.include?(@user.id)%>
