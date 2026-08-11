@@ -33,6 +33,7 @@ li svg{
 
 .dropdown{
     position: relative;
+    display: inline-block;
 }
 
 .dropdown-content{
@@ -47,6 +48,17 @@ li svg{
     padding: 5px;
     color: black;
     display: block;
+}
+.dropdown-content p{
+    text-decoration: none;
+    padding: 5px;
+    color: black;
+    display: block;
+}
+
+.dropdown-content p:hover{
+    color: purple;
+    text-decoration: underline;
 }
 
 .dropdown:hover .dropdown-content{

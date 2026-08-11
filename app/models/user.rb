@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_one_attached :image
+  def fetch_request_list
+    @requesting_users = User.where(id: self.follow_request_list)
+    @requesting_users
+  end
 end

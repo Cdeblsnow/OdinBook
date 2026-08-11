@@ -1,8 +1,12 @@
 <h1>Find people</h1>
 
 <%@user.each do |user|%>
-after following someone return here
-    <p>you are not following <%=user.user_name%> </p>
-        <%= button_to "Follow", follow_user_path(user), method: :post, class: "btn-follow"%>
-    </div>
+    <%if user != current_user%>
+        <p>you are not following <%=user.user_name%> </p>
+        <%if user.follow_request_list.include?(current_user.id)%>
+            <%= button_to "Cancel request"%>
+        <%else%>
+            <%= button_to "Follow", follow_request_user_path(user), method: :post, class: "btn-follow"%>
+        <%end%>
+    <%end%>
 <%end%>

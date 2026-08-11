@@ -1,10 +1,9 @@
 <%# Fetch all users before looping %>
-<%requesting_users = User.where(id: current_user.follow_request_list)%>
+<%list = current_user.fetch_request_list%>
 
-<%requesting_users.each do |user|%>
-    <div>
+<%list.each do |user|%>
         <p><%=user.user_name%> has requested following you</p>
         <%= button_to "Accept", follow_user_path(user), method: :post, class: "btn-follow"%>
         <%= button_to "Reject", remove_from_list_user_path(user), method: :post, class: "btn-follow"%>
-    </div>
+
 <%end%>
