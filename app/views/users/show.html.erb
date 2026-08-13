@@ -1,16 +1,18 @@
 <div class="user-profile-card">
-    <div class="user-name">
-        
-        <%if current_user.image.attached?%>
-            <%# add css %>
-            <%= image_tag(current_user.image, style:"
-            display: inline-block;height: 150px; height:150px; ; border-radius: 10%")%>
-         <%else%>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <title>Account</title>
-                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
-            </svg>
-        <%end%>
+        <div class="user-pfp">
+            <%if current_user.image.attached?%>
+                <%# add css %>
+                <%= image_tag(current_user.image, style:"
+                display: inline-block;height: 150px; height:150px; ; border-radius: 10%")%>
+             <%else%>
+                    <div class="unknown-pfp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <title>Account</title>
+                        <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                        </svg>
+                    </div>
+            <%end%>
+        </div>
         <h2>
             <div class="edit-profile">
                 <%= @user.user_name%>
@@ -22,19 +24,19 @@
                 <%end%>
             </div>
         </h2>
-        <% if current_user.id == @user.id%>
-            <p> My profile</p>
-        <%elsif  current_user.following.include?(@user.id)%>
-            <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
-        <%elsif @user.follow_request_list.include?(current_user.id)%>
-            <%= button_to "Cancel",cancel_follow_request_user_path(@user),method: :post, class: "btn-follow" %>
-        <%else%>
-            <%= button_to "Follow", follow_request_user_path(@user), method: :post, class: "btn-follow"%>
-        <%end%>
-    </div>
+        <div class="btn-section">
+            <% if current_user.id == @user.id%>
+                <p> My profile</p>
+            <%elsif  current_user.following.include?(@user.id)%>
+                <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
+            <%elsif @user.follow_request_list.include?(current_user.id)%>
+                <%= button_to "Cancel",cancel_follow_request_user_path(@user),method: :post, class: "btn-follow" %>
+            <%else%>
+                <%= button_to "Follow", follow_request_user_path(@user), method: :post, class: "btn-follow"%>
+            <%end%>
+        </div>
     <div class="user-follow">
         <div>
-            <p> add space and check behavior when follow butn is on display</p>
             <p>Followers</p>
             <p><%=@user.followed_by.count%></p>
         </div>

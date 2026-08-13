@@ -1,36 +1,49 @@
 .user-profile-card{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: blueviolet;
     border: solid black;
     border-radius: 6rem;
     width: 25rem;
+    height: 12rem;
     margin: auto;
     padding-top: 2rem;
     padding-bottom: 8rem;
 }
 
-.user-name{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.user-follow{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .edit-profile{
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
+    margin-left: 50px;
 }
 
 .edit-profile svg{
+    margin-left: 15px;
     width: 1.3em;
     height: 1.3em;
 }
+
+.unknown-pfp svg{
+    width: 100px;
+    height: 100px;
+}
+
+.user-follow{
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-follow div p:nth-child(2){
+    display: flex;
+    justify-content: center;
+}
+
 
