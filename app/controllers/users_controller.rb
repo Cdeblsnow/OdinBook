@@ -31,6 +31,13 @@ class UsersController < ApplicationController
     current_user.save
   end
 
+  def cancel_follow_request
+    @user.follow_request_list = @user.follow_request_list - [ current_user.id ]
+    if @user.save
+      redirect_to @user
+    end
+  end
+
   def follow_request
     @user.follow_request_list << current_user.id
     if @user.save

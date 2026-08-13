@@ -27,7 +27,7 @@
         <%elsif  current_user.following.include?(@user.id)%>
             <%= button_to "Unfollow", unfollow_user_path(@user), method: :post, class: "btn-follow"%>
         <%elsif @user.follow_request_list.include?(current_user.id)%>
-            <%= button_to "Cancel request is not working it have to trigger remove from list"%>
+            <%= button_to "Cancel",cancel_follow_request_user_path(@user),method: :post, class: "btn-follow" %>
         <%else%>
             <%= button_to "Follow", follow_request_user_path(@user), method: :post, class: "btn-follow"%>
         <%end%>
