@@ -1,4 +1,5 @@
 <%= turbo_stream.append "list-of-comments" do %>
+  <%= @comment.user.user_name%>
   <%=  @comment.content %>
 <% end %>
 

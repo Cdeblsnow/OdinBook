@@ -1,20 +1,21 @@
-
-.posts-container{
+.posts-container {
     display: block;
-    width: 80%;
+    width: 40%;
     margin: auto;
     margin-top: 5rem;
+    margin-bottom: 1rem;
     background-color: rgb(146, 146, 240);
     border: solid rgb(63, 60, 60);
-    
+    border-radius: 5%;
+
 }
 
-div h3{
+div h3 {
     display: flex;
     justify-content: center;
 }
 
-.post-content{
+.post-content {
     display: flex;
     flex-direction: column;
 }
@@ -24,7 +25,7 @@ div h3{
     flex-direction: column;
 }
 
-.post-info{
+.post-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -32,20 +33,20 @@ div h3{
     padding: 2rem 0 0 2rem;
 }
 
-.post-card h4{
+.post-card h4 {
     font-size: 2.8rem;
 
 }
 
-.post-card h5{
+.post-card h5 {
     font-size: 1.5rem;
 }
 
-.post-card h4 a{
+.post-card h4 a {
     text-decoration: none;
 }
 
-.post-body{
+.post-body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,21 +54,21 @@ div h3{
     border-bottom: 2px solid black;
 }
 
-.post-interactions{
+.post-interactions {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    
+
 }
 
-.post-interactions div{
+.post-interactions div {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 2% 0 0;
 }
 
-.post-interactions div svg{
+.post-interactions div svg {
     width: 2em;
     height: 2rem;
 }
