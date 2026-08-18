@@ -12,7 +12,7 @@
                 </div>
                 <div class="post-interactions">
                     <p> like and comment btn not working yet</p>
-                    <% if current_user.likes.last&.num_likes == 1%>
+                    <% if current_user.post_likes.last&.num_likes == 1%>
                         <div>
                             <%= button_to remove_like_like_path(post) do%>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

@@ -13,7 +13,7 @@ class LikesController < ApplicationController
   end
 
   def remove_like
-    @like = Like.find_by(post_id: @post.id)
+    @like = PostLike.find_by(post_id: @post.id)
     @like.num_likes -= 1
     @like.num_dislikes += 1
     if  @like.save
@@ -31,11 +31,11 @@ class LikesController < ApplicationController
     @post = Post.find(params[:id])
   end
   def set_like
-    @like = current_user.likes.find_by(post_id: @post.id) || set_new
+    @like = current_user.post_likes.find_by(post_id: @post.id) || set_new
   end
 
   def set_new
-    @like = @post.likes.build
+    @like = @post.post_likes.build
     @like.user_id = current_user.id
     @like
   end
