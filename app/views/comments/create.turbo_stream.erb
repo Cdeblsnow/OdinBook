@@ -2,7 +2,7 @@
   <%=  @comment.content %>
 <% end %>
 
-<%= turbo_stream.replace "new_comment_frame" do %>
+<%= turbo_stream.update "new_comment_frame" do %>
   <%= turbo_frame_tag "new_comment_frame" do %>
     <%= link_to "Add a comment", new_post_comment_path(@post), data: { turbo_frame: "new_comment_frame" } %>
   <% end %>
