@@ -6,9 +6,9 @@ class Post < ApplicationRecord
   delegate :user_name, to: :author, prefix: true, allow_nil: true
 
   def number_likes
-    post_likes.last&.num_likes
+    self.number_of_likes
   end
   def number_dislikes
-    post_likes.last&.num_dislikes
+    self.num_of_dislikes
   end
 end
