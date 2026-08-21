@@ -54,6 +54,7 @@ class UsersController < ApplicationController
     current_user.number_of_notifications = 0
   end
 
+
   private
 
   def set_user

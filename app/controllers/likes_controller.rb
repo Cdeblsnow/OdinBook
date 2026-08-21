@@ -3,9 +3,9 @@ class LikesController < ApplicationController
   before_action :set_like
 
   def add_like
-    @like.num_dislikes = (@like&.num_dislikes - 1).clamp(0..)
-    @like.num_likes += 1
-    if @like.save && @post.save
+    @post.num_of_dislikes -= (@post&.num_of_dislikes - 1).clamp(0..)
+    @post.number_of_likes += 1
+    if @like.save! && @post.save!
       redirect_to @post
     else
       render :new, status: :unprocessable_entity
@@ -14,14 +14,17 @@ class LikesController < ApplicationController
 
   def remove_like
     @like = PostLike.find_by(post_id: @post.id)
-    @like.num_likes -= 1
-    @like.num_dislikes += 1
-    if  @like.save
+    @post.number_of_likes -= (@post&.number_of_likes - 1).clamp(0..)
+    @post.num_of_dislikes += 1
+    if  @post.save
+      @like.destroy!
       redirect_to @post
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+
 
 
   private
