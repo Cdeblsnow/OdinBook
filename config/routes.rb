@@ -29,7 +29,7 @@ Rails.application.routes.draw do
      end
    end
 
-   resources :likes do
+   resources :post_likes do
      member do
        post :add_like
        post :remove_like

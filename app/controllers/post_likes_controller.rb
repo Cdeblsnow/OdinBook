@@ -1,17 +1,23 @@
-class LikesController < ApplicationController
+class PostLikesController < ApplicationController
   before_action :set_post
   before_action :set_like
 
   def add_like
     @post.num_of_dislikes -= (@post&.num_of_dislikes - 1).clamp(0..)
     @post.number_of_likes += 1
-    if @like.save! && @post.save!
-      redirect_to @post
+    if  @post.save!
+      respond_to do |format|
+        format.html { redirect_to @post }
+        format.json { render json: { status: "ok" }, status: :ok }
+      end
     else
-      render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
-
+  # add respond to
   def remove_like
     @like = PostLike.find_by(post_id: @post.id)
     @post.number_of_likes -= (@post&.number_of_likes - 1).clamp(0..)
@@ -41,5 +47,8 @@ class LikesController < ApplicationController
     @like = @post.post_likes.build
     @like.user_id = current_user.id
     @like
+  end
+
+  def liked?
   end
 end

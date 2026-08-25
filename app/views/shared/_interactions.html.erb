@@ -1,9 +1,11 @@
-<div class="post-interactions" data-controller = "posts_interactions"
-            data-posts_interactions-id-value="<%= post.id%>">      
+<div class="post-interactions" data-controller = "posts-interactions"
+            data-posts_interactions-id-value="<%= post.id%>"> 
+
+              
     <div>
-        <button type="button" data-posts_interactions-target="btn1"
-            data-action="click->switch#update"
-            data-url="<% add_like_like_path(post)%>" 
+        <button type="button" data-posts-interactions-target="btn1"
+            data-action="click->posts-interactions#update"
+            data-url="<%=  add_like_post_like_path(post)%>" 
             <%='disabled' if current_user.liked_posts.include?(post)%>>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>Like</title>
@@ -15,9 +17,9 @@
     </div>
                    
     <div>
-        <button type="button" data-posts_interactions-target="btn2"
-            data-action="click->switch#update" 
-            data-url="<%remove_like_like_path(post)%>"
+        <button type="button" data-posts-interactions-target="btn2"
+            data-action="click->posts-interactions#update" 
+            data-url="<%=remove_like_post_like_path(post)%>"
             <%='disabled' unless current_user.liked_posts.include?(post)%>>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>dislike</title>
