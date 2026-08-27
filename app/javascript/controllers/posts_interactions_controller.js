@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="posts-interactions"
 export default class extends Controller {
-  static targets = ["btn1","btn2"]
+  static targets = ["btn1","btn2","likes","dislikes"]
   
 
   async update(event){
@@ -22,6 +22,17 @@ export default class extends Controller {
     })
 
     if(response.ok){
+      const data= await response.json()
+      console.log(data)
+
+      if (data.likes_text !== undefined && this.hasLikesTarget){
+        this.likesTarget.textContent = data.likes_text
+      }
+
+      if (data.dislikes_text !== undefined && this.hasDislikesTarget){
+        this.dislikesTarget.textContent = data.dislikes_text
+      }
+
       this.toggleStates()
     }
   }
@@ -31,3 +42,4 @@ export default class extends Controller {
     this.btn2Target.disabled = !this.btn2Target.disabled
   }
 }
+
