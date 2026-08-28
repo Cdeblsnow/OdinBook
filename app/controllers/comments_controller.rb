@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comments_params)
     @comment.user = current_user
+    @post.number_of_comments += 1
 
-    if @comment.save
+    if @comment.save && @post.save
       respond_to do |format|
         format.turbo_stream
         format.html { redirect to @post }

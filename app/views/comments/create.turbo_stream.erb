@@ -1,6 +1,6 @@
 <%= turbo_stream.append "list-of-comments" do %>
-  <%= @comment.user.user_name%>
-  <%=  @comment.content %>
+  <h5><%= @comment.user.user_name%></h5>
+  <p><%=  @comment.content %></p>
 <% end %>
 
 <%= turbo_stream.update "new_comment_frame" do %>

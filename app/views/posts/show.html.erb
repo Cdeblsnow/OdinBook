@@ -10,18 +10,20 @@
                 <%= @post.body%>
             </div>
             
-            <%=render partial: "shared/interactions", locals: {post: @post}%>
-            <div class="post-interactions">
-                <div>
-                    <%= turbo_frame_tag "new_comment_frame" do%>
-                        <%= link_to  new_post_comment_path(@post), data: { turbo_frame:"new_comment_frame"} do%>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <title>Comment</title>
-                                <path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M17,11H15V9H17V11M13,11H11V9H13V11M9,11H7V9H9V11Z" />
-                            </svg>
+            <div class = align>
+                <%=render partial: "shared/interactions", locals: {post: @post}%>
+                <div class="post-interactions">
+                    <div>
+                        <%= turbo_frame_tag "new_comment_frame" do%>
+                            <%= link_to  new_post_comment_path(@post), data: { turbo_frame:"new_comment_frame"} do%>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <title>Comment</title>
+                                    <path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9M10,16V19.08L13.08,16H20V4H4V16H10M17,11H15V9H17V11M13,11H11V9H13V11M9,11H7V9H9V11Z" />
+                                </svg>
+                            <%end%>
                         <%end%>
-                    <%end%>
-                    <%=@post.number_of_comments%>
+                        <%=@post.number_of_comments%>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,6 +34,7 @@
     <div class="list">
         <%  @post.comments.each do |c|%>
             <div class="comment">
+                <%= turbo_frame_tag "list-of-comments" do%><%end%>
                 <h5><%=link_to c.user.user_name, user_path(c.user)%></h5>
                 <p><%= c.content%></p>
             </div>

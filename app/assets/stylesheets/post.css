@@ -60,14 +60,22 @@ div h3 {
 
 }
 
+
 .post-interactions div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 2% 0 0;
+    margin: 0 .5rem 0 0;
 }
 
 .post-interactions div svg {
     width: 2em;
     height: 2rem;
+}
+
+.align{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
