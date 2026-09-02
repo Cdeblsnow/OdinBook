@@ -19,6 +19,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy!
+  end
+
   private
 
   # find the post once so post.find does not have to be called each time
