@@ -15,6 +15,7 @@ Rails.application.routes.draw do
    # Defines the root path route ("/")
    root "posts#index"
 
+   # one to many relation
    resources :posts do
      resources :comments
    end
@@ -35,5 +36,11 @@ Rails.application.routes.draw do
        post :remove_like
      end
    end
+
+   resources :comment_like do
+     member do
+       post :add_like
+       post :remove_like
+     end
+   end
 end
-# remove the unnecessary routes for users
