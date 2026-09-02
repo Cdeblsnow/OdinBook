@@ -37,9 +37,7 @@
                 <%= turbo_frame_tag "list-of-comments" do%><%end%>
                 <h5><%=link_to c.user.user_name, user_path(c.user)%></h5>
                 <p><%= c.content%></p>
-            </div>
-
-            <div class="post-interactions" data-controller = "comment-interactions"> 
+                <div class="post-interactions" data-controller = "comment-interactions"> 
                 <div>
                     <button type="button" data-comment-interactions-target="btn1"
                         data-action="click->comment-interactions#update"
@@ -78,7 +76,10 @@
                 <%end%>           
             
             
+                </div>
             </div>
+
+            
         <%end%>
         
     </div>

@@ -21,8 +21,17 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    decrease_comment_count
     @comment.destroy!
+    redirect_to @post, status: :see_other, notice: "Successfully removed"
   end
+
+  def decrease_comment_count
+    @post.number_of_comments = (@post&.number_of_comments - 1).clamp(0..)
+    @post.save
+  end
+
+
 
   private
 
