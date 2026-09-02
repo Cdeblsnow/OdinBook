@@ -23,7 +23,6 @@ export default class extends Controller {
 
     if(response.ok){
       const data= await response.json()
-      console.log(data)
 
       if (data.likes_text !== undefined && this.hasLikesTarget){
         this.likesTarget.textContent = data.likes_text
