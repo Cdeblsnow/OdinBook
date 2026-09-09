@@ -2,7 +2,7 @@
     display: block;
     width: 40%;
     margin: auto;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
     background-color: rgb(146, 146, 240);
     border: solid rgb(63, 60, 60);
@@ -18,11 +18,13 @@ div h3 {
 .post-content {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .post-card {
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 
 .post-info {
@@ -112,4 +114,9 @@ div h3 {
     border: solid rgb(63, 60, 60);
     border-radius: 5%;
     
+}
+
+.interactions-line{
+    display: flex;
+    justify-content: flex-end;
 }

@@ -32,8 +32,8 @@
 
 <div class = "comment-section">
     <div class="list">
+        <%  @post.comments.each do |c|%>
             <div class="comment">
-                <%  @post.comments.each do |c|%>
                 <%= turbo_frame_tag "list-of-comments" do%><%end%>
                 <h5><%=link_to c.user.user_name, user_path(c.user)%></h5>
                 <p><%= c.content%></p>
