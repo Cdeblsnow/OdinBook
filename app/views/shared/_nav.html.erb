@@ -17,8 +17,8 @@
                 <%end%>
             </li>
             <li>
-                <div class="dropdown">
-                    <div class="attention" data-controller="notification">
+                <div class="dropdown" data-controller="notification" data-notification-number-value="<%current_user.number_of_notifications%>">
+                    <div class="attention" data-notification-target="bubble" >
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <title>notifications</title>

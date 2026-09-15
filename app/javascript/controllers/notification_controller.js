@@ -2,6 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="notification"
 export default class extends Controller {
-  connect() {
+  static targets = ["bubble"]
+  static values = {number: Number}
+
+  
+  numberValueChanged(value){
+    if (value > 0) {
+      this.bubbleTarget.classList.remove("hidden")
+    } else {
+      this.bubbleTarget.classList.add("hidden")
+    }
   }
 }
