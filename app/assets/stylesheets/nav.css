@@ -69,3 +69,13 @@ li svg{
     color: purple;
     text-decoration: underline;
 }
+
+.attention{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 100%;
+    right: .5px;
+    
+}
