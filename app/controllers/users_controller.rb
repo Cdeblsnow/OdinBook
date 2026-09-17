@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, except: [ :index ]
+  # use after action to add notifications
 
   def index
     already_following = current_user.following
