@@ -15,4 +15,14 @@ class User < ApplicationRecord
     @requesting_users = User.where(id: self.follow_request_list)
     @requesting_users
   end
+
+  def add_notification(from, interaction, type)
+    self.notifications << [ from.to_s, interaction, type ]
+    self.save!
+  end
+
+  def reset_notifications
+    current_user.notifications = []
+    current_user.save
+  end
 end

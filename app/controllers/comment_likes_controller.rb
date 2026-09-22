@@ -1,6 +1,7 @@
 class CommentLikesController < ApplicationController
   before_action :set_comment
   before_action :set_like
+  before_action :set_user
 
   def add_like
     @comment.num_of_dislikes = (@comment&.num_of_dislikes - 1).clamp(0..)
@@ -11,6 +12,7 @@ class CommentLikesController < ApplicationController
         format.json { render json: { status: "ok",
         likes_text: @comment.num_of_likes,
         dislikes_text: @comment.num_of_dislikes }, status: :ok }
+        add_notification("liked")
       end
     else
       respond_to do |format|
@@ -32,6 +34,7 @@ class CommentLikesController < ApplicationController
         likes_text: @comment.num_of_likes,
         dislikes_text: @comment.num_of_dislikes }, status: :ok }
       end
+      add_notification("disliked")
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +43,10 @@ class CommentLikesController < ApplicationController
     end
   end
 
-
+  def add_notification(interaction)
+    @user.class
+    @user.add_notification(current_user.id, interaction, "comment")
+  end
 
 
 
@@ -49,6 +55,10 @@ class CommentLikesController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(@comment.user_id)
   end
   def set_like
     @like = current_user.comment_likes.find_by(comment_id: @comment.id) || set_new

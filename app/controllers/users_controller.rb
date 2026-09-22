@@ -47,13 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def notification
-    @user.number_of_notifications += 1
-  end
 
-  def reset_notifications
-    current_user.number_of_notifications = 0
-  end
 
 
   private
