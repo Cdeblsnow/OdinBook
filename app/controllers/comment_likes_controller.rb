@@ -44,8 +44,7 @@ class CommentLikesController < ApplicationController
   end
 
   def add_notification(interaction)
-    @user.class
-    @user.add_notification(current_user.id, interaction, "comment")
+    @user.add_notification(current_user.id, interaction, "comment", @comment.post_id)
   end
 
 

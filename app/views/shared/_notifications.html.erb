@@ -1,0 +1,13 @@
+<%list = current_user.fetch_notification_list%>
+
+<%list.each do |notification|%>
+
+        <div>
+                <%=link_to notification[0][0][0], user_path(id:notification[0][0][1])%>
+                <p>has <%=notification[0][1]%> your</p>
+                <%=link_to notification[0][2],post_path(id:notification[0][3])%>
+        </div>
+
+        
+
+<%end%>

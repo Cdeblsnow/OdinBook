@@ -56,11 +56,6 @@ li svg{
     display: block;
 }
 
-.dropdown-content p:hover{
-    color: purple;
-    text-decoration: underline;
-}
-
 .dropdown:hover .dropdown-content{
     display: block;
 }
@@ -69,6 +64,11 @@ li svg{
     color: purple;
     text-decoration: underline;
 }
+
+.dropdown-content div {
+    border-bottom: solid 1px black;
+}
+
 
 .attention{
     position: absolute;
