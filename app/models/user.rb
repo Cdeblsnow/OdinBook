@@ -31,10 +31,4 @@ class User < ApplicationRecord
     self.notifications << [ uid.to_s, interaction, type, tid.to_s ]
     self.save!
   end
-
-  # pending testing
-  def reset_notifications
-    self.notifications = []
-    self.save
-  end
 end

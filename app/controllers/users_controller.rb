@@ -47,7 +47,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def reset_notifications
+    current_user.notifications = []
+    current_user.save
 
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_path }
+      format.turbo_stream { render turbo_stream: turbo_stream.refresh }
+    end
+  end
 
 
   private

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
        post :follow_request
        post :remove_from_list
        post :cancel_follow_request
+       patch :reset_notifications
      end
    end
 
