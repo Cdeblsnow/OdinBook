@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+  before_action :set_index_posts
   def new
     @post = current_user.posts.build
   end
 
   def index
-    @posts = Post.all
+    @i_posts
   end
 
   def show
@@ -35,5 +36,23 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def set_index_posts
+    @i_post = []
+    ids = set_ids
+    ids.each do |u|
+    @i_post.concat(Post.all.where(author_id: u).to_a)
+    end
+    @i_post
+  end
+
+  def set_ids
+    ids = []
+    current_user.following.each do |u|
+      ids << u
+    end
+    ids.unshift(current_user.id)
+    ids
   end
 end

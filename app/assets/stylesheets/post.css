@@ -122,3 +122,13 @@ div h3 {
     display: flex;
     justify-content: flex-end;
 }
+
+.follow-advice{
+   margin-left: 45%; 
+   margin-top: 10%;
+}
+
+.follow-advice p {
+    font-size: 2em;
+    font-weight: bold;
+}
