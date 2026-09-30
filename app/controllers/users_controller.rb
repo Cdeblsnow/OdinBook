@@ -42,7 +42,6 @@ class UsersController < ApplicationController
   def follow_request
     @user.follow_request_list << current_user.id
     if @user.save
-      notification
       redirect_to @user
     end
   end
