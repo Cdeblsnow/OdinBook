@@ -1,5 +1,6 @@
 class PostLikesController < ApplicationController
   before_action :set_post
+  before_action :set_user
   before_action :set_like
 
   def add_like
@@ -11,7 +12,9 @@ class PostLikesController < ApplicationController
         format.json { render json: { status: "ok",
         likes_text: @post.number_of_likes,
         dislikes_text: @post.num_of_dislikes }, status: :ok }
+        add_notification("liked")
       end
+
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
@@ -31,6 +34,7 @@ class PostLikesController < ApplicationController
         format.json { render json: { status: "ok",
        likes_text: @post.number_of_likes,
         dislikes_text: @post.num_of_dislikes }, status: :ok }
+        add_notification("disliked")
       end
     else
       respond_to do |format|
@@ -38,6 +42,10 @@ class PostLikesController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def add_notification(interaction)
+    @user.add_notification(current_user.id, interaction, "post", @post.id)
   end
 
 
@@ -49,6 +57,11 @@ class PostLikesController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
+  def set_user
+    @user = User.find(@post.author_id)
+  end
+
   def set_like
     @like = current_user.post_likes.find_by(post_id: @post.id) || set_new
   end

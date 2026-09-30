@@ -14,6 +14,7 @@ class CommentLikesController < ApplicationController
         dislikes_text: @comment.num_of_dislikes }, status: :ok }
         add_notification("liked")
       end
+
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
@@ -33,8 +34,9 @@ class CommentLikesController < ApplicationController
         format.json { render json: { status: "ok",
         likes_text: @comment.num_of_likes,
         dislikes_text: @comment.num_of_dislikes }, status: :ok }
+        add_notification("disliked")
       end
-      add_notification("disliked")
+
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
