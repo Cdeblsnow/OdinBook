@@ -5,13 +5,7 @@ export default class extends Controller {
   static targets = ["bubble"]
   static values = {number: Number}
   
-  connect(){
-    console.log(this.numberValue)
-  }
-
-  
-
-  
+ 
   numberValueChanged(number){
     
     if (number > 0) {

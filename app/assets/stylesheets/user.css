@@ -74,4 +74,24 @@
     font-weight: bold;
 }
 
+.follow-list {
+    margin-left: 20px;
+}
+
+.follow-field{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(146, 146, 240);
+    margin: 10px 0 10px 0;
+    height: 3.5rem;
+    width: 30rem;
+    border: solid black;
+    border-radius: 5%;
+}
+
+.follow-field p {
+    margin-right: 20px;
+}
 
