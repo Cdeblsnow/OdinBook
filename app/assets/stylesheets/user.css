@@ -46,4 +46,32 @@
     justify-content: center;
 }
 
+.edit{
+    margin-left: 45%;
+    margin-top: 10%;
+    background-color: rgb(146, 146, 240);
+    height: 35rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid rgb(63, 60, 60);
+    border-radius: 5%;
+}
+
+.edit form{
+    margin-left:5px;
+}
+
+.field {
+    margin: 15px 0 15px 0;
+}
+
+.field p {
+    font-weight: bold;
+}
+
 
