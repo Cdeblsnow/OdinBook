@@ -13,6 +13,11 @@
 
     <%= yield :head %>
 
+    <%if flash[:alert]%>
+      <div class="alert">
+        <%= flash[:alert]%>
+      </div>
+    <%end%>
     
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
