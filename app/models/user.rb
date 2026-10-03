@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :comment_likes, dependent: :destroy
   has_many :liked_comments, through: :comment_likes, source: :comment
+  after_create :send_welcome_email
 
   has_one_attached :image
 
@@ -30,5 +31,11 @@ class User < ApplicationRecord
   def add_notification(uid, interaction, type, tid)
     self.notifications << [ uid.to_s, interaction, type, tid.to_s ]
     self.save!
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).devise_now
   end
 end
