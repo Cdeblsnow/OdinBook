@@ -22,5 +22,3 @@ Nulla vestibulum ac lacus eu luctus. Nam commodo gravida dictum. Mauris condimen
 number_of_comments: 0,
 number_of_likes: 0
 )
-user = User.create!(email: "example1@gmail.com", password: "123456", user_name: "user22025")
-user = User.create!(email: "example2@gmail.com", password: "123456", user_name: "user22028")
