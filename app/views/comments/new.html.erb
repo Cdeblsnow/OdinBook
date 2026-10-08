@@ -1,5 +1,13 @@
 <%= turbo_frame_tag "new_comment_frame" do%>
     <%= form_with model: [@post,@comment] do |f|%>
+        <% if @comment.errors.any?%>
+            <div class="alert">
+                <p>
+                    Your comment could not be posted because: <%=@comment.errors.full_messages.to_sentence%>
+                </p>
+            </div>
+        <%end%>
+
         <%= f.text_area :content%>
         <%= f.submit%>
     <%end%>
