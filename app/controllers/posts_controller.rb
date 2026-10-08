@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
+      flash.now[:alert] = "Your post could not be saved because: #{@post.errors.full_messages.to_sentence}"
       render :new, status: :unprocessable_entity
     end
   end
