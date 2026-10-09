@@ -18,8 +18,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV["DATABASE_USER"] %>
-  password: <%= ENV["DATABASE_PASSWORD"]
+  
 
 
 development:
@@ -90,6 +89,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     database: odinbook_production
     username: odinbook
     password: <%= ENV["ODINBOOK_DATABASE_PASSWORD"] %>
@@ -105,3 +105,5 @@ production:
     <<: *primary_production
     database: odinbook_production_cable
     migrations_paths: db/cable_migrate
+
+  
